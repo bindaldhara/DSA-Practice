@@ -17,8 +17,7 @@ public:
             temp=temp->next;
             count++;
         }
-
-    
+        
         count=count-n+1;
         ListNode *todel;
         if(count==1){ 

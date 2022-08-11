@@ -20,13 +20,12 @@ public:
         ListNode* head = l2->val <= l1->val ? l2 : l1;
         ListNode* pre = NULL;
         while (p != NULL && q != NULL) {
-            if (q->val <= p->val) {
+            if(q->val <= p->val){
                 ListNode* node = q;
                 q = q->next;
                 node->next = p;
-                if (pre != NULL) {
+                if (pre != NULL)
                     pre->next = node;
-                }
                 pre = node;
             } else {
                 pre = p;

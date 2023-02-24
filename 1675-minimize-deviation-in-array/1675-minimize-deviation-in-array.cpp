@@ -4,7 +4,8 @@ public:
         priority_queue<int> pq;
         int mn=INT_MAX;
         for(auto i:nums){
-            if(i%2!=0) i*=2;
+            if(i%2!=0)
+                i*=2;
             mn=min(mn,i);
             pq.push(i);
         }

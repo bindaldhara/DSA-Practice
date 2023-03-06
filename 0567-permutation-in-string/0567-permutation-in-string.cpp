@@ -6,7 +6,6 @@ public:
        unordered_map<char,int> mp1,mp2; 
         if(n>m) 
             return false;
-        
         for(int i=0;i<n;i++)
             mp1[s1[i]]++;
         for(int i=0;i<m-n+1;i++){
@@ -16,6 +15,7 @@ public:
             if(mp1==mp2) 
                 return true;
         }
+        
         return false; 
     }
 };

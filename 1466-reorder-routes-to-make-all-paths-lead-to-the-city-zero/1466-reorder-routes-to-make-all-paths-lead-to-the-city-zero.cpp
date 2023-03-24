@@ -1,27 +1,23 @@
 class Solution {
 public:
-    int minReorder(int n, vector<vector<int>>& connections) {
-        vector<vector<vector<int>>>adj(n);
-        int cnt=0;
-        queue<vector<int>>q;
-        for(auto e:connections){
-            adj[e[0]].push_back({e[1],e[1]});
-            adj[e[1]].push_back({e[0],e[1]});
-        }
-        q.push({0,-1});
-        while(!q.empty()){
-            auto node=q.front();
-            q.pop();
-            for(auto neighbour:adj[node[0]]){
-                if(neighbour[0]!=node[1]){
-                    if(neighbour[1]!=node[0]){
-                        cnt++;
-                    }
-                    q.push({neighbour[0],node[0]});
-
-                }
+   void dfs(vector<vector<int>> &adj, int &cnt, vector<bool> &vis, int node){
+        vis[node] = true;
+        for (auto neighbor : adj[node]){
+            if (!vis[abs(neighbor)]){
+                cnt += neighbor < 0 ? 1 : 0;
+                dfs(adj, cnt, vis, abs(neighbor));
             }
         }
+    }
+    int minReorder(int n, vector<vector<int>> &connections){
+        int cnt = 0;
+        vector<vector<int>> adj(n);
+        vector<bool> vis(n, false);
+        for (auto &con : connections){
+            adj[con[0]].push_back(-con[1]);
+            adj[con[1]].push_back(con[0]);
+        }
+        dfs(adj, cnt, vis, 0);
         return cnt;
     }
 };

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int longestPalindromeSubseq(string s) {
+    int longestPalindromeSubseq(string s) { // reverse and then LCS
         string B = string(s.rbegin(), s.rend());
 
         int m = s.size(), n = B.size();

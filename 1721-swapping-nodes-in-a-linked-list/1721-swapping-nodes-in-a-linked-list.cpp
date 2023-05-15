@@ -17,7 +17,6 @@ public:
                ptr=ptr->next;
                n--;
            }
-        
            ListNode* frnt=ptr;
            ListNode* back=head;
         

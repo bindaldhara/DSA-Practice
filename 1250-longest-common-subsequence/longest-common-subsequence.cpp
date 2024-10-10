@@ -13,7 +13,7 @@ public:
         int temp = helper(s1,s2,i-1,j,dp);
         int temp2 = helper(s1,s2,i,j-1,dp);
         
-        dp[i][j] = max(take, max(temp,temp2));
+        dp[i][j] = max({take, temp, temp2});
         return dp[i][j];
         
     }
